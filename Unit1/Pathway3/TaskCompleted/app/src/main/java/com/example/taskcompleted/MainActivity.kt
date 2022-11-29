@@ -22,15 +22,35 @@ import com.example.taskcompleted.ui.theme.TaskCompletedTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { }
+        setContent {
+            TaskCompletedTheme {
+                Surface {
+                    TaskCompletedScreen()
+                }
+            }
+        }
     }
 }
 
 @Composable
 fun TaskCompletedScreen() {
-    Column( ) { }
+    Column(horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier.fillMaxWidth().fillMaxHeight()
+    ) {
+        val image = painterResource(R.drawable.ic_task_completed)
+        Image(painter = image, contentDescription = null)
+        Text(text = "All tasks completed", fontSize = 24.sp, modifier = Modifier.padding(top = 24.dp, bottom = 8.dp), fontWeight = FontWeight.Bold)
+        Text(text = "Nice work!", fontSize = 16.sp)
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() { }
+fun DefaultPreview() {
+    TaskCompletedTheme {
+        Surface {
+            TaskCompletedScreen()
+        }
+    }
+}
