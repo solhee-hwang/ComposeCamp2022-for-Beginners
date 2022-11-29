@@ -51,7 +51,7 @@ private fun ArticleCard(
     longDescription: String,
     imagePainter: Painter,
     modifier: Modifier = Modifier,
-) {
+) {™
     Column() {
         Image(painter = imagePainter, contentDescription =null )
         Text(text = title, fontSize = 24.sp, modifier = Modifier.padding(16.dp))
